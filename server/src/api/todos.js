@@ -14,8 +14,8 @@ router.get('/lists', async (req, res, next) => {
       //create the tables if do not exists
       db.run("CREATE TABLE IF NOT EXISTS todoLists (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, date DATE)");
       db.run("CREATE TABLE IF NOT EXISTS todoListItems (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, listId INTEGER, status TINYINT DEFAULT 0)");
-
-      db.all("SELECT l.*, COUNT(i.id) as items FROM todoLists AS l LEFT JOIN todoListItems AS i ON i.listId=l.id ORDER BY l.date DESC", (err, result) => {
+      
+      db.all("SELECT l.*, (SELECT COUNT(*) FROM todoListItems as i WHERE i.listId=l.id) as items FROM todoLists AS l ORDER BY l.date DESC", (err, result) => {
         if (err)
           throw new Error(err)
 

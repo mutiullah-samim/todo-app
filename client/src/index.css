@@ -5,6 +5,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 code {
@@ -25,6 +27,7 @@ code {
   padding: 10px 20px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   z-index: 10;
+  width: 100%;
 }
 
 .header>.logo {
@@ -174,11 +177,11 @@ code {
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   margin-bottom: 20px;
   border-radius: 5px;
-  border-left: 5px solid red;
+  border-left: 10px solid red;
 }
 
 .card >.card-content .todo-item.done{
-  border-left: 5px solid green;
+  border-left: 10px solid green;
 }
 
 .card >.card-content .todo-item .item-name{
@@ -234,3 +237,28 @@ code {
 }
 
 /* end loading indicator */
+
+
+/* media queries */
+
+@media screen and (max-width:1190px){
+  .card{
+    width: 100%;
+    margin-left: 15px;
+    margin-right: 15px;
+  }
+}
+
+@media screen and (max-width:600px){
+ 
+.card>.card-header{
+  flex-direction: column;
+  row-gap: 15px;
+}
+.card>.card-header > div{
+  justify-content: center !important;
+  margin: 0 !important;
+}
+}
+
+/* end media queries */
