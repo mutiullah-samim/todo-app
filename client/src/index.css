@@ -1,0 +1,236 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+
+/* header */
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  height: 60px;
+  background-color: darkred;
+  padding: 10px 20px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  z-index: 10;
+}
+
+.header>.logo {
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* end header */
+
+
+/* todos */
+
+.card{
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  padding: 10px;
+  width: 50%;
+  margin: 20px auto 0 auto;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+}
+
+.card>.card-header{
+  display: flex;
+  flex-direction: row;
+}
+
+.card>.card-header .date-container{
+  flex: 3;
+  display: flex;
+  justify-content: flex-start;
+  margin-right: 20px;
+
+}
+.card>.card-header .input-container{
+  flex: 3;
+  display: flex;
+  justify-content: flex-start;
+}
+.card>.card-header .date-container > label, .card>.card-header .input-container > label{
+  margin-right: 10px;
+  font-size: 18px;
+  align-self: center;
+}
+.card>.card-header input{
+  flex: 1;
+  padding: 10px;
+  outline: 0;
+  border: 2px solid darkred;
+  font-size: 15px;
+  margin: 0;
+
+}
+
+.card>.card-header button {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: stretch;
+  outline: none;
+  border: none;
+  padding: 10px 20px;
+  background: darkred;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.card>.card-header .search-btn:hover {
+  background: black;
+}
+
+.card >.card-content{
+  display: flex;
+  flex-direction: column;
+  padding: 30px 0 0 0;
+}
+
+.card >.card-content .todo-list{
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   align-items: center;
+   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+   margin-bottom: 20px;
+   border-radius: 5px;
+
+}
+
+.card >.card-content .todo-list > div{
+  flex: 2;
+  display: flex;
+  justify-content: flex-start;
+  padding: 15px;
+}
+.card >.card-content .todo-list > div:nth-child(2){
+  flex: 1;
+  justify-content: space-between;
+}
+.card >.card-content .todo-list > div .list-name{
+  font-size: 18px;
+  font-weight: bold;
+  padding-right: 10px;
+  margin-right: 10px;
+  border-right: 1px solid rgba(0, 0, 0, 0.24);
+}
+.card >.card-content .todo-list > div:nth-child(2) > div{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  column-gap: 15px;
+}
+
+.card >.card-content .todo-list .items-count{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: darkred;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  padding: 2px;
+  color: white;
+  margin-left: 5px;
+}
+
+
+.card >.card-content .btn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgba(0,0,0,0.7);
+  cursor: pointer;
+  font-size: 22px;
+}
+.card >.card-content .btn.done{
+  color: green;
+}
+
+.card >.card-content .todo-item{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  border-left: 5px solid red;
+}
+
+.card >.card-content .todo-item.done{
+  border-left: 5px solid green;
+}
+
+.card >.card-content .todo-item .item-name{
+  flex: 2;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 15px;
+}
+
+.card >.card-content .todo-item .actions{
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  column-gap: 15px;
+  padding: 15px;
+}
+/* end todos */
+
+/* loading indicator */
+
+.loading-indicator {
+  display: inline-block;
+  width: 42px;
+  height: 42px;
+  margin: 20px auto;
+
+}
+
+.loading-indicator:after {
+  content: " ";
+  display: block;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 6px solid darkred;
+  border-color: darkred transparent darkred transparent;
+  animation: loading-indicator 1.2s linear infinite;
+}
+
+@keyframes loading-indicator {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* end loading indicator */
